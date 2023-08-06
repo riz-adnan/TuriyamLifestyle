@@ -18,6 +18,14 @@ const AppmemberSchema = new Schema({
     required:true,
     unique:true
 },
+name:{
+    type:String,
+    default:"noname"
+},
+parentname:{
+    type:String,
+    default:"noname"
+},
 
 Lastmonthsales:{
     type:String,

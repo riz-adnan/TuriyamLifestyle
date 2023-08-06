@@ -2,6 +2,7 @@ const mongoose =require('mongoose');
 const { Schema } = mongoose;
 
 const ProductsSchema = new Schema({
+ 
   name:{
     type:String,
     default:"Unnamed Product",
@@ -15,7 +16,7 @@ const ProductsSchema = new Schema({
   },
   urltoimage:{
     type:String,
-    default:"",
+    default:"g",
     required:true
   },
   description:{

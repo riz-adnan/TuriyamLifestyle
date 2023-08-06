@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+const mongoose =require('mongoose');
+const { Schema } = mongoose;
 
-const orderSchema = new mongoose.Schema(
+const OrderSchema = new mongoose.Schema(
   {
     products: [
       {
@@ -8,18 +9,35 @@ const orderSchema = new mongoose.Schema(
         ref: "Products",
       },
     ],
-    payment: {},
+    productsname:[
+      {
+        type:String,
+        default:""
+      }
+    ],
     buyer: {
       type: mongoose.ObjectId,
       ref: "User",
     },
-    status: {
-      type: String,
-      default: "Not Process",
-      enum: ["Not Process", "Processing", "Shipped", "deliverd", "cancel"],
+    refid:{
+      type:String,
+      default:"TLS-001"
     },
-  },
-  { timestamps: true }
+    price:{
+      type:Number,
+      default:0
+    },
+    usercontact:[{
+      type:String,
+      default:""
+    }],
+    date:{
+      type:String,
+      default:Date.now
+    }
+  }
+  
 );
+const Order=mongoose.model('Order',OrderSchema);
 
-export default mongoose.model("Order", orderSchema);
+module.exports=Order;

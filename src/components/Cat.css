@@ -1,0 +1,12 @@
+img{
+    height:600px;
+    
+}
+#carouselExample{
+    margin-top: 5px;
+}
+#posbtn{
+    position:fixed;
+    bottom:30%;
+    right:5%;
+}

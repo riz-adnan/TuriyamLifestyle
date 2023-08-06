@@ -18,7 +18,7 @@ router.post('/create',[
   body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
 ] ,
 async (req,res)=>{
-    
+  let success=false;
     try {
         
         const salt = await bcrypt.genSalt(10);
@@ -39,11 +39,12 @@ async (req,res)=>{
     
     
         // res.json(user)
-        res.json({ authtoken })
+        success=true;
+        res.json({ success,authtoken })
 
     }
     catch(error){
-        console.error(error.message);
+        console.error(success,error.message);
         res.status(500).send("Internal Server Error");
     }
 });
@@ -55,7 +56,8 @@ router.post('/login', [
     
     body('password', 'Password cannot be blank').exists(),
   ], async (req, res) => {
-  
+    
+    let success=false;
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -66,12 +68,12 @@ router.post('/login', [
     try {
       let user = await Admin.findOne({ name });
       if (!user) {
-        return res.status(400).json({ error: "Please try to login with correct credentials" });
+        return res.status(400).json({success, error: "Please try to login with correct credentials" });
       }
   
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
-        return res.status(400).json({ error: "Please try to login with correct credentials" });
+        return res.status(400).json({ success, error: "Please try to login with correct credentials" });
       }
   
       const data = {
@@ -80,10 +82,11 @@ router.post('/login', [
         }
       }
       const authtoken = jwt.sign(data, JWT_SECRET);
-      res.json({ authtoken })
+      success=true;
+      res.json({success, authtoken })
   
     } catch (error) {
-      console.error(error.message);
+      console.error(sucess, error.message);
       res.status(500).send("Internal Server Error");
     }
   
@@ -98,7 +101,7 @@ router.post('/login', [
       
       const user = await Admin.findById(userId);
       console.log(user)
-      res.send(user)
+      res.json(user)
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server Error");

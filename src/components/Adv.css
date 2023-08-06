@@ -1,0 +1,22 @@
+#posbtn{
+    position:fixed;
+    bottom:30%;
+    right:5%;
+}
+.logo {
+    font-size: 200px;
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+  }
+  #headimage{
+    height:20em;
+    width:20em;
+  }
+  #downimage{
+    height:20em;
+    width:60em
+  }

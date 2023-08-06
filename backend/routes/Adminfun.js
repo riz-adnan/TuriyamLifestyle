@@ -34,12 +34,19 @@ router.post('/approvemember/:id', fetchadmin, async (req, res) => {
                 {
                     return res.status(200).send("Wrong referral");
                 }
+                let member1= await AppMember.findOne({memberid})
+                if(member1)
+                {
+                    return res.send("Member already exist")
+                }
             
             
         
         const appmember=AppMember.create({
             member:member._id,
             parent:parent._id,
+            parentname:req.body.parentid,
+            name:member.name,
             memberid:memberid,
             lastmonthsales:lastmonthsales,
             dailysales:dailysales,
