@@ -15,8 +15,6 @@ const Cart = () => {
 
     const postOrder =  async () =>{
         
-        console.log(cartids)
-        console.log(window.localStorage.getItem("userid"))
         postorder(cartids,refid,window.localStorage.getItem("userid"))
         setRefid("")
         navigate('/');

@@ -20,8 +20,9 @@ app.use('/api/Adminfun',require('./routes/Adminfun'));
 app.use('/api/Mem',require('./routes/Mem'));
 app.use('/api/Orders',require('./routes/Orders'));
 
-app.use('*',function(req,res){
+app.use('*', function(req,res){
   res.sendFile(path.join(__dirname,'../build/index.html'))
+  
 })
 
 app.listen(port, () => {
