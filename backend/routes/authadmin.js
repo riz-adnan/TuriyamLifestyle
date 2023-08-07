@@ -23,7 +23,7 @@ async (req,res)=>{
         
         const salt = await bcrypt.genSalt(10);
         const secPass = await bcrypt.hash(req.body.password, salt);
-        console.log(secPass)
+        
         // Create a new Admin
         user = await Admin.create({
           name: req.body.name,
@@ -100,7 +100,7 @@ router.post('/login', [
       const userId = await req.user.user.id;
       
       const user = await Admin.findById(userId);
-      console.log(user)
+      
       res.json(user)
     } catch (error) {
       console.error(error.message);

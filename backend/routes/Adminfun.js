@@ -25,11 +25,11 @@ router.post('/approvemember/:id', fetchadmin, async (req, res) => {
             if(!member){
                 return res.status(404).send("Not Found");
             }
-            console.log(member);
+            
             
             
                 const parent=await AppMember.findOne({ memberid:req.body.parentid });
-                console.log(parent)
+                
                 if(!parent)
                 {
                     return res.status(200).send("Wrong referral");
@@ -66,7 +66,7 @@ router.post('/approvemember/:id', fetchadmin, async (req, res) => {
           
     }
     catch (error){
-        console.error(error.message);
+        
         res.status(500).send("Internal Server Error");
     }
 });

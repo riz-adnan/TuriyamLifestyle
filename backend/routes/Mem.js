@@ -12,7 +12,7 @@ require('dotenv').config();
 
 const JWT_SECRET = process.env.JWT_SECRET_MEMBER;
 cron.schedule("0 0 0 * * *", async ()=> {
-  console.log("10sec")
+  
   let member=await AppMember.find();
   
   const l=member.length
@@ -37,7 +37,7 @@ cron.schedule("0 0 0 * * *", async ()=> {
 
 
   cron.schedule("* * 1 * *", async ()=> {
-    console.log("10sec")
+    
     let member=await AppMember.find();
     
     const l=member.length
@@ -146,7 +146,7 @@ router.post('/requestmember', [
  router.put('/updateappmembers/:id',fetchadmin,async (req,res)=>{
   
   try{
-    console.log(req.body)
+    
     let newappmember={};
     if(req.body.memberid){newappmember.memberid=req.body.memberid}
     if(req.body.Lastmonthsales){newappmember.Lastmonthsales=req.body.Lastmonthsales}
@@ -155,7 +155,7 @@ router.post('/requestmember', [
     if(req.body.GPG){newappmember.GPG=req.body.GPG}
     if(req.body.rank){newappmember.rank=req.body.rank}
     
-    console.log(newappmember)
+    
     let member= await AppMember.findById(req.params.id);
     if(!member)
     {

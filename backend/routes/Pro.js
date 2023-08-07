@@ -46,7 +46,7 @@ async (req,res)=>{
             if(category) {newProd.category=category};
 
             let prod= await Products.findById(req.params.id);
-            console.log(prod);
+            
             if(!prod){
                 return res.status(404).send("Not Found");
             }

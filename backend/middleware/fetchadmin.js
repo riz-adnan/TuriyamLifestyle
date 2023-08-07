@@ -11,7 +11,7 @@ const fetchadmin = (req, res, next) => {
         const data = jwt.verify(token, JWT_SECRET);
         req.user = data;
         next();
-        console.log("verified");
+        
     } catch (error) {
         res.status(401).send({ error: "Please authenticate using a valid token" })
     }

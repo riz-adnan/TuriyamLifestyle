@@ -12,8 +12,7 @@ router.post('/postorder',fetchuser, async (req,res)=>{
     success=false;
     try{
         
-        console.log("postorder")
-       console.log(req.body.cart)
+        
         if(req.body.cart.length==0)
         {
             return res.json({success,"message":"no products "})
@@ -23,12 +22,12 @@ router.post('/postorder',fetchuser, async (req,res)=>{
         let productnames=[]
         for(let i=0;i<req.body.cart.length;i++)
         {
-            console.log("hello in postorder")
+            
             let tempid=req.body.cart[i];
             let product=await Product.findById(tempid);
             if(!product)
             {
-                console.log("product me dikakat")
+                
                 return res.json({success,"message":"wrong product"})
                 
             }
@@ -40,11 +39,10 @@ router.post('/postorder',fetchuser, async (req,res)=>{
         let user=await User.findById(req.body.buyer)
         if(!user)
         {
-            console.log(req.body.buyer)
-            console.log("user me dikkat")
+            
             return res.json({success,"message":"wrong user"});
         }
-        console.log("just before creating order");
+        
         let order= await Order.create({
             products:req.body.cart,
             buyer:req.body.buyer,
@@ -70,7 +68,7 @@ router.get('/getorders',fetchadmin,async (req,res)=>{
     try{
         let orders=await Order.find();
         let productnames=[];
-        console.log("in get order");
+        
         for(let i=0;i<orders.length;i++)
         {
             
@@ -107,7 +105,7 @@ router.put('/approveorder/:id',fetchadmin, async (req,res)=>{
         {
             return res.json({"message":"sales not added to the member"});
         }
-        console.log(mem.Lastmonthsales)
+        
         mem.Lastmonthsales=(parseInt(mem.Lastmonthsales)+sale).toString();
         
         mem.Monthsales=(parseInt(mem.Monthsales)+sale).toString();
