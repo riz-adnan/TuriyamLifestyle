@@ -1,1 +1,1 @@
-[Turiyam.net](http://turiyam.net)  . Click on the link to access the website.
+This is official website for a lifestyle brand , Turiyam Lifestyle Pvt. Ltd. . You can join their business, or become their customers. [Turiyam.net](http://turiyam.net)  . Click on the link to access the website.
