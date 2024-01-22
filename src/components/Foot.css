@@ -1,3 +1,9 @@
 .foot{
-    background-color: black;
+    background-color: orange;
+    border-radius: 40%;
+    
+}
+
+#icons1,#icons2,#icons3,#icons4{
+    color: #000000;
 }

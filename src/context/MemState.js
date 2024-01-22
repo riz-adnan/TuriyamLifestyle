@@ -11,7 +11,7 @@ const MemState = (props) => {
   // Get all Notes
   const getMema = async () => {
     // API Call 
-    const response = await fetch(`/api/Adminfun/getappmembers`, {
+    const response = await fetch(`http://localhost:5000/api/Adminfun/getappmembers`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const MemState = (props) => {
   }
   const getMemm = async () => {
     // API Call 
-    const response = await fetch(`/api/Mem/getappmembers`, {
+    const response = await fetch(`http://localhost:5000/api/Mem/getappmembers`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const MemState = (props) => {
   }
   //Approve
   const requestmem =async (id,memberid,parentid)=>{
-    const response = await fetch(`/api/Adminfun/approvemember/${id}`, {
+    const response = await fetch(`http://localhost:5000/api/Adminfun/approvemember/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const MemState = (props) => {
     }
 
     const getrequest = async ()=>{
-        const response = await fetch(`/api/Adminfun/getmember/`, {
+        const response = await fetch(`http://localhost:5000/api/Adminfun/getmember/`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const MemState = (props) => {
   // Delete a Note
   const deleteMem = async (id) => {
     // API Call
-    const response = await fetch(`/api/Mem/deletemember/${id}`, {
+    const response = await fetch(`http://localhost:5000/api/Mem/deletemember/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const MemState = (props) => {
 
   const deleteMemm = async (id) => {
     // API Call
-    const response = await fetch(`/api/Mem/deleterequest/${id}`, {
+    const response = await fetch(`http://localhost:5000/api/Mem/deleterequest/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const MemState = (props) => {
   // Edit a Note
   const editMem = async (id, memberid,Lastmonthsales,dailysales,Monthsales,GPG,rank,childranks) => {
     // API Call 
-    const response = await fetch(`/api/Mem/updateappmembers/${id}`, {
+    const response = await fetch(`http://localhost:5000/api/Mem/updateappmembers/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

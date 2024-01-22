@@ -11,15 +11,15 @@ const Navbar = () => {
 
 
   return (
-    <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div className="container-fluid">
+    <div className="navi">
+        <nav className="navbar navbar-expand-lg navbar-light " >
+  <div className="container-fluid" >
     <Link to="/" className="navbar-brand" >Turiyam Lifestyles</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul className="navbar-nav my-2">
         <li className="nav-item">
           <Link to="/" className={`nav-link ${location.pathname==="/"? "active": ""}`} aria-current="page" >Home</Link>
         </li>
@@ -28,7 +28,7 @@ const Navbar = () => {
           <Link to="/men" className="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Products
           </Link>
-          <ul className="dropdown-menu dropdown-menu-dark bg-dark">
+          <ul className="dropdown-menu  " id="hi">
             <li><Link to="/men" className="dropdown-item" >Men's Clothing</Link></li>
             <li><Link to="/women" className="dropdown-item" >Women's Clothing</Link></li>
             
@@ -67,7 +67,7 @@ const Navbar = () => {
         <>
         <li className="nav-item">
           <Link to="/loginuser" className={`nav-link ${location.pathname==="/longinuser"? "active": ""}`} >Login</Link>
-        </li>;
+        </li>
         
         </>
         )}

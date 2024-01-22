@@ -17,7 +17,7 @@ const Productcard = (props) => {
     
     
     Addtocart(prod._id,prod.name, prod.description, prod.price,prod.urltoimage,prod.category);
-    
+    console.log("hi");
     localStorage.setItem('cart',cart);
 }
 
@@ -25,7 +25,8 @@ const Productcard = (props) => {
   return (
     <div>
        <div class="card" style={mystyle}>
-  <img src={prod.urltoimage} class="card-img-top" alt="..." id="changeheight"/>
+        <div className='cardimage'>
+  <img src={prod.urltoimage} class="card-img-top" alt="..." id="changeheight"/></div>
   <div class="card-body">
     <h5 class="card-title">{prod.name}</h5>
     <p class="card-text">{prod.description.substring(0,30)}</p>

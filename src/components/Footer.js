@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom';
 const Footer = () => {
   return (
     <div className='foot'>
-        
-<div className="container my-5">
+        <div className="border"></div>
+<div >
  
   <footer
-          className="text-center text-lg-start text-white"
+          className="text-center text-lg-start text-black"
           
           >
   
@@ -40,16 +40,16 @@ const Footer = () => {
               Useful links
             </h6>
             <p>
-              <Link to="/adminlogin" className="text-white">Admin</Link>
+              <Link to="/adminlogin" className="text-black">Admin</Link>
             </p>
             <p>
-              <Link to="/loginmember" className="text-white">Member Login</Link>
+              <Link to="/loginmember" className="text-black">Member Login</Link>
             </p>
             <p>
-              <Link to="/about" className="text-white">About Us</Link>
+              <Link to="/about" className="text-black">About Us</Link>
             </p>
             <p>
-              <Link to="/" className="text-white">Help</Link>
+              <Link to="/" className="text-black">Help</Link>
             </p>
           </div>
 
@@ -79,8 +79,8 @@ const Footer = () => {
           <div className="col-md-7 col-lg-8 text-center text-md-start">
           
             <div className="p-3">
-              © 2023 Copyright:
-              <Link className="text-white" to="https://www.zaubacorp.com/company/TURIYAM-LIFESTYLE-PRIVATE-LIMITED/U52609CT2022PTC013845"
+              © 2022 Copyright:
+              <Link className="text-black" to="https://www.zaubacorp.com/company/TURIYAM-LIFESTYLE-PRIVATE-LIMITED/U52609CT2022PTC013845"
                  >TuriamLifestyles.com</Link>
             </div>
           
@@ -88,34 +88,34 @@ const Footer = () => {
          
 
         
-          <div className="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+          <div className="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end text-black">
           
             <Link to="https://www.zaubacorp.com/company/TURIYAM-LIFESTYLE-PRIVATE-LIMITED/U52609CT2022PTC013845" 
-               className="btn btn-outline-light btn-floating m-1"
+               className="btn btn-outline-dark btn-floating m-1"
                
                role="button"
-               ><i className="fab fa-facebook-f"></i></Link>
+               ><i className="fa-brands fa-facebook" id="icons1"></i></Link>
 
            
             <Link to="https://www.zaubacorp.com/company/TURIYAM-LIFESTYLE-PRIVATE-LIMITED/U52609CT2022PTC013845" 
-               className="btn btn-outline-light btn-floating m-1"
+               className="btn btn-outline-dark btn-floating m-1"
                
                role="button"
-               ><i className="fab fa-twitter"></i></Link>
+               ><i className="fab fa-linkedin " id="icons2"></i></Link>
 
            
             <Link to="https://www.zaubacorp.com/company/TURIYAM-LIFESTYLE-PRIVATE-LIMITED/U52609CT2022PTC013845" 
-               className="btn btn-outline-light btn-floating m-1"
+               className="btn btn-outline-dark btn-floating m-1"
                
                role="button"
-               ><i className="fab fa-google"></i></Link>
+               ><i className="fab fa-google" id="icons3"></i></Link>
 
             
             <Link to="https://www.zaubacorp.com/company/TURIYAM-LIFESTYLE-PRIVATE-LIMITED/U52609CT2022PTC013845" 
-               className="btn btn-outline-light btn-floating m-1"
+               className="btn btn-outline-dark btn-floating m-1"
                
                role="button"
-               ><i className="fa fa-instagram"></i></Link>
+               ><i className="fa fa-instagram" id="icons4"></i></Link>
           </div>
           
         </div>

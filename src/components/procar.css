@@ -1,4 +1,39 @@
 #changeheight{
     height:13em;
     width:19rem;
+    justify-content: center;
+    
+}
+.cardimage{
+    margin-top: 10px;
+}
+.card{
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+
+}
+.card:hover{
+    background-color: beige;
+}
+.testimonials{
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    font-style: bold;
+    font-weight: 1000;
+    z-index: 999;
+}
+#centrethis{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+@media only screen and (max-width: 600px) {
+    .testimonials{
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
 }

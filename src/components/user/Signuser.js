@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Layout from '../Layout';
-
+import './login.css'
 
 const Signuser = (props) => {
     const [credentials, setCredentials] = useState({name: "", password: "",email:"",phone:"",address:""}) 
@@ -10,7 +10,7 @@ const Signuser = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const response = await fetch("/api/auth/createuser", {
+        const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -42,6 +42,7 @@ const Signuser = (props) => {
         <Layout title={"Sign Up - TLS"}>
         <div>
             <form  onSubmit={handleSubmit}>
+                <div className="container-fluid" id='card'>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">User Name</label>
                     <input type="name" className="form-control" value={credentials.name} onChange={onChange} id="name" name="name" aria-describedby="nameHelp" />
@@ -65,8 +66,10 @@ const Signuser = (props) => {
                 </div>
                 
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-outline-success">Signup</button>
+                </div>
             </form>
+            
         </div>
         </Layout>
     )

@@ -1,3 +1,14 @@
+.navi{
+    background-color: orange;
+    color: black;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+}
+#hi{
+    background-color: orange;
+}
+
 i{
     color:#dee2e7;
     
