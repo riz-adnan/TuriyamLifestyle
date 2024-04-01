@@ -15,6 +15,7 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -22,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "backend":"cd backend && nodemon index.js",
+    "backend": "cd backend && nodemon index.js",
     "both": "concurrently \"npm start\" \"npm run backend\""
   },
   "eslintConfig": {

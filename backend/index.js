@@ -5,13 +5,36 @@ const path=require('path')
 connectToMongo();
 require('dotenv').config()
 const app = express();
-var cors = require('cors') 
+const cors = require('cors'); 
+const { log } = require('console');
 const port=process.env.PORT;
+const session = require("express-session");
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true // Make sure to include credentials if your frontend sends cookies
+}));
+app.use(session({
+  secret: 'your_secret_key',
+  resave: true,
+  saveUninitialized: true,
+   // Adjust according to your setup
+}));
 
 
-app.use(cors())
+let router = express.Router();
+app.use(router);
+
+
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'../build')))
+
+app.use(session({
+  secret: 'your_secret_key',
+  resave: true,
+  saveUninitialized: true,
+   // Adjust according to your setup
+}));
 
 app.use('/api/auth',require('./routes/auth'));
 app.use('/api/Pro',require('./routes/Pro'));

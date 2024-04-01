@@ -1,9 +1,13 @@
 .foot{
-    background-color: orange;
-    border-radius: 40%;
+    background-color: rgb(112, 4, 120);
+    
     
 }
 
-#icons1,#icons2,#icons3,#icons4{
-    color: #000000;
+#icons1,#icons2,#icons3,#icons4,#copyright,#link{
+    color: #f9f8f8;
+}
+#link:hover{
+    color: #d51717;
+    text-decoration: none;
 }

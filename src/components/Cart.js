@@ -5,22 +5,43 @@ import Layout from './Layout'
 import Cartcard from './Cartcard'
 
 const Cart = () => {
+    
     const context = useContext(prodContext);
     const { orderprice,cart,cartids,postorder } = context;
+      
     const [refid,setRefid]=useState("");
     const navigate = useNavigate();
     const onChange = (e)=>{
         setRefid( e.target.value)
     }
 
+
+
+
     const postOrder =  async () =>{
         
         postorder(cartids,refid,window.localStorage.getItem("userid"))
-        setRefid("")
-        navigate('/');
-        
+        const response = await fetch('http://localhost:5000/api/Orders/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ price: orderprice })
+            });
 
-    }
+            const data = await response.json();
+          
+            // Redirect to the checkout page
+            window.location.href = data.sessionUrl;
+        }
+        
+        const postCOD =  async () =>{
+            
+                postorder(cartids,refid,window.localStorage.getItem("userid"))
+                navigate('/')
+            }
+
+    
 
 
   return (
@@ -48,8 +69,8 @@ const Cart = () => {
                 <span class="input-group-text" id="basic-addon1">Referral</span>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" onChange={onChange}/>
                 </div>
-                <button type="button" class="btn btn-success btn-rounded" onClick={postOrder}  style={{width:"24rem"}}>Place Order</button>
-
+                <button type="button" class="btn btn-success btn-rounded" onClick={postOrder}  style={{width:"24rem"}}>Pay Online</button>
+                <button type="button" class="btn btn-success btn-rounded" onClick={postCOD}  style={{width:"24rem", marginTop:"10px"}}>Cash on Delivery</button>
             </>)
         : (
             <>

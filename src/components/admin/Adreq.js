@@ -9,21 +9,22 @@ const Adreq = () => {
   },[])
   const ref=useRef(null)
   const refClose=useRef(null)
-  const[reqmems,setreqMem]=useState({id:"",ememberid:"",eparentid:""})
+  const[reqmems,setreqMem]=useState({id:"",eAadhar:"",ePan:"",ePhone:"",eAddress:"",eIFSC:"",eAccountNum:""})
 
     const updateMem =(currentMem)=>{
       ref.current.click();
-      setreqMem({id:currentMem._id,ename:currentMem.memberid,eparentid:currentMem.parentid})
+      setreqMem({id:currentMem._id,eAadhar:currentMem.Aadhar,ePan:currentMem.Pan,ePhone:currentMem.phone,eAddress:currentMem.address,eIFSC:currentMem.IFSC,eAccountNum:currentMem.AccountNum})
     }
     const handleClick=(e)=>{
-      requestmem(reqmems.id,reqmems.ememberid,reqmems.eparentid)
+      requestmem(reqmems.id,reqmems.eAadhar,reqmems.ePan,reqmems.ePhone,reqmems.eAddress,reqmems.eIFSC,reqmems.eAccountNum)
       refClose.current.click()
     }
     const onChange=(e)=>
     setreqMem({...reqmems,[e.target.name]:e.target.value})
 
   return (
-    <div>
+    <div style={{color:"black"
+    }}>
 
 <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -38,12 +39,28 @@ const Adreq = () => {
                         <div className="modal-body">
                             <form className="my-3">
                                 <div className="mb-3">
-                                    <label htmlFor="memberid" className="form-label">Member ID</label>
-                                    <input type="text" className="form-control" id="ememberid" name="ememberid" value={reqmems.ememberid} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+                                    <label htmlFor="Aadhar" className="form-label">Aadhar</label>
+                                    <input type="text" className="form-control" id="eAadhar" name="eAadhar" value={reqmems.eAadhar} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="parentid" className="form-label">parentid</label>
-                                    <input type="text" className="form-control" id="eparentid" name="eparentid" value={reqmems.eparentid} onChange={onChange} />
+                                    <label htmlFor="Pan" className="form-label">Pan</label>
+                                    <input type="text" className="form-control" id="ePan" name="ePan" value={reqmems.ePan} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="Phone" className="form-label">Phone</label>
+                                    <input type="text" className="form-control" id="ePhone" name="ePhone" value={reqmems.ePhone} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="Address" className="form-label">Address</label>
+                                    <input type="text" className="form-control" id="eAddress" name="eAddress" value={reqmems.eAddress} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="IFSC" className="form-label">IFSC</label>
+                                    <input type="text" className="form-control" id="eIFSC" name="eIFSC" value={reqmems.eIFSC} onChange={onChange} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="AccountNum" className="form-label">AccountNum</label>
+                                    <input type="text" className="form-control" id="eAccountNum" name="eAccountNum" value={reqmems.eAccountNum} onChange={onChange} />
                                 </div>
                                 
                                 

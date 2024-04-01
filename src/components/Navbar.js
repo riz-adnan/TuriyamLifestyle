@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="navi">
-        <nav className="navbar navbar-expand-lg navbar-light " >
+        <nav className="navbar navbar-expand-lg navbar-dark " >
   <div className="container-fluid" >
     <Link to="/" className="navbar-brand" >Turiyam Lifestyles</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,19 +24,9 @@ const Navbar = () => {
           <Link to="/" className={`nav-link ${location.pathname==="/"? "active": ""}`} aria-current="page" >Home</Link>
         </li>
         
-        <li className="nav-item dropdown">
-          <Link to="/men" className="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Products
-          </Link>
-          <ul className="dropdown-menu  " id="hi">
-            <li><Link to="/men" className="dropdown-item" >Men's Clothing</Link></li>
-            <li><Link to="/women" className="dropdown-item" >Women's Clothing</Link></li>
-            
-            <li><Link to="/gen" className="dropdown-item" >General</Link></li>
-          </ul>
-        </li>
+        
         <li className="nav-item">
-          <Link to="/startbusiness" className={`nav-link ${location.pathname==="/startbusiness"? "active": ""}`} >Start A Business</Link>
+          <Link to="/men" className={`nav-link ${location.pathname==="/men"? "active": ""}`} >Products</Link>
         </li>
         
         {(window.localStorage.getItem('username'))?(

@@ -6,7 +6,7 @@ const Order=require('../models/Order')
 const Product=require('../models/Products')
 const User=require('../models/User');
 const Appmember=require('../models/AppMember');
-
+const stripe = require('stripe')('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');
 
 router.post('/postorder',fetchuser, async (req,res)=>{
     success=false;
@@ -89,6 +89,38 @@ router.get('/getorders',fetchadmin,async (req,res)=>{
     }
 })
 
+router.post('/create-checkout-session', async (req, res) => {
+    try {
+        
+        const { price } = req.body;
+
+        // Create a checkout session
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: [
+                {
+                    price_data: {
+                        currency: 'inr',
+                        product_data: {
+                            name: 'Total Amount', // You can name this whatever you want
+                        },
+                        unit_amount: price * 100, // Convert price to cents
+                    },
+                    quantity: 1,
+                },
+            ],
+            mode: 'payment',
+            success_url: 'https://dribbble.com/shots/5902176-Payment-Success-page', // URL to redirect to after successful payment
+            cancel_url: 'https://webflow.com/made-in-webflow/website/failed-payment-page', // URL to redirect to after payment is canceled
+        });
+
+        // Send the checkout session URL to the frontend
+        res.status(200).json({ sessionUrl: session.url });
+    } catch (error) {
+        console.error('Error creating checkout session:', error);
+        res.status(500).send('Error creating checkout session');
+    }
+});
 
 router.put('/approveorder/:id',fetchadmin, async (req,res)=>{
     try{

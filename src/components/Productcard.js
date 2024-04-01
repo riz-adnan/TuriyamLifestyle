@@ -7,7 +7,8 @@ const Productcard = (props) => {
   const mystyle={
     "width":"20rem",
     "height":"24em",
-    "margin-top":"5em"
+    "margin-top":"5em",
+    "background-color":"blanchedalmond"
   }
 
   const context=useContext(prodContext);
@@ -17,7 +18,7 @@ const Productcard = (props) => {
     
     
     Addtocart(prod._id,prod.name, prod.description, prod.price,prod.urltoimage,prod.category);
-    console.log("hi");
+    
     localStorage.setItem('cart',cart);
 }
 

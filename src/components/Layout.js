@@ -14,6 +14,8 @@ const Layout = ({ children, title, description, keywords, author }) => {
         <title>{title}</title>
       </Helmet>
       <Navbar />
+      <br />
+      <br />
       <main >
         
 

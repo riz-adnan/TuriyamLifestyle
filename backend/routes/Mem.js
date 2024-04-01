@@ -8,6 +8,8 @@ var jwt = require('jsonwebtoken');
 const fetchadmin = require('../middleware/fetchadmin');
 const fetchmember=require('../middleware/fetchmember')
 const cron = require("node-cron");
+const sendMail = require('../utils/nodeMailer');
+const member = require('../models/Member');
 require('dotenv').config();
 
 const JWT_SECRET = process.env.JWT_SECRET_MEMBER;
@@ -136,9 +138,33 @@ router.post('/requestmember', [
  });
 
  //Route 3: Route for getting all the member(approved) by members.
- router.get('/getappmembers',fetchmember,async (req,res) =>{
-    const member=await AppMember.find();
-    res.json(member);
+ router.post('/getappmembers',fetchmember,async (req,res) =>{
+  
+    const members=await AppMember.find();
+    let showmembers=[];
+    let actmember=[];
+    showmembers.push(req.body.memberid);
+    let mem=await AppMember.findOne({memberid:req.body.memberid});
+  
+    actmember.push(mem);
+    
+    while(showmembers.length>0)
+    {
+    for(let i=0;i<members.length;++i)
+    {
+      
+      if(members[i].parentname==showmembers[0])
+      {
+        
+        showmembers.push(members[i].memberid);
+        
+        actmember.push(members[i]);
+      }
+    }
+    showmembers.shift();
+  }
+  
+    res.json(actmember);
  });
 
 //Route 4: Update Member
@@ -173,6 +199,48 @@ router.post('/requestmember', [
  }
  
  )
+
+ router.put('/updatemember/:id',fetchadmin,async (req,res)=>{
+    
+    try{
+      
+      
+      
+      let member= await Member.findById(req.params.id);
+      if(!member)
+      {
+        return res.status(200).send("Members is not approved")
+      }
+      let newmember={};
+      if(req.body.refid){newmember.refid=req.body.refid}
+      else{newmember.refid=member.refid}
+      if(req.body.Aadhar){newmember.Aadhar=req.body.Aadhar}
+      else{newmember.Aadhar=member.Aadhar}
+      if(req.body.Pan){newmember.Pan=req.body.Pan}
+      else{newmember.Pan=member.Pan}
+      if(req.body.AccountNum){newmember.AccountNum=req.body.AccountNum}
+      else{newmember.AccountNum=member.AccountNum}
+      if(req.body.IFSC){newmember.IFSC=req.body.IFSC}
+      else{newmember.IFSC=member.IFSC}
+      if(req.body.name){newmember.name=req.body.name}
+      else{newmember.name=member.name}
+      if(req.body.email){newmember.email=req.body.email}
+      else{newmember.email=member.email}
+      if(req.body.password){newmember.password=req.body.password}
+      else{newmember.password=member.password}
+      if(req.body.phone){newmember.phone=req.body.phone}
+      else{newmember.phone=member.phone}
+      if(req.body.address){newmember.address=req.body.address}
+      else{newmember.address=member.address}
+      member= await Member.findByIdAndUpdate(req.params.id,{$set:newmember},{new:true});
+      res.json(member);
+    }
+    catch(error){
+      console.error(error.message)
+      res.status(500).send("Internal Server Error");
+    }
+    })
+
 
  router.delete('/deletemember/:id',fetchadmin,async (req,res)=>{
   
@@ -210,7 +278,7 @@ catch(error){
 }
 });
 
- router.get('/memberdetail/:id',fetchadmin,async (req,res)=>{
+ router.post('/memberdetail/:id',fetchadmin,async (req,res)=>{
   let member=await AppMember.findById(req.params.id)
     if(!member)
     {
@@ -220,6 +288,114 @@ catch(error){
     let memberdetails=await Member.findById(idmem)
     res.json({member:member,memberdetails:memberdetails})
  })
+
+ router.post('/verification',async(req,res)=>{
+    let member=await Member.findOne({email:req.body.email});
+    
+    if(!member)
+    {
+      return res.status(200).send("member not found. Try registering first")
+    }
+    let newappmember=await AppMember.findOne({member:member._id})
+    if(newappmember)
+    {
+      return res.status(200).send("Member already verified")
+    }
+    let email=req.body.email
+    req.body.email=member.email;
+    req.session.confirmationEmail = email;
+    let confirmations=await sendMail(req,res);
+    req.session.confirmationCode = confirmations[email];
+    
+    res.json({success:"true",confirmations})
+    
+ })
+ router.post('/verifycode',async(req,res)=>{  
+    const { code } = req.body;
+    const email = req.body.confirmationEmail;
+    const confirmationCode = req.body.confirmationCode;
+    
+    if (confirmationCode === code) {
+      let member=await Member.findOne({email:email});
+      let parent=await AppMember.findOne({ memberid:member.refid });
+      let pid;
+      let pname="";
+      if(parent)
+      {
+         pid=parent._id;
+         pname=parent.memberid;
+      }
+      else
+      {
+        let p2=await Member.findOne({memberid:"TLS-001"});
+        pid=p2._id;
+        pname=p2.memberid;
+      }
+      let newappmember=await AppMember.findOne({member:member._id})
+      if(newappmember)
+      {
+        return res.status(200).send("Member already verified")
+      }
+      let str="TLS-"
+      for(let i=100;i<10000;++i)
+      {
+        let str1=str+i;
+        let appmember=await AppMember.findOne({memberid:str1})
+        if(!appmember)
+        {str=str1;break;}
+      }
+      let appmember=await AppMember.create({
+        member:member._id,
+        parent:pid,
+        parentname:pname,
+        name:member.name,
+        memberid:str,
+        lastmonthsales:"0",
+        dailysales:"0",
+        Monthsales:"0",
+        GPG:"0",
+        rank:"0",
+        childranks:"0"
+    })
+    res.json(appmember);
+ }})
+
+ router.post('/forgotpassword',async(req,res)=>{
+    let member=await Member.findOne({email:req.body.email});
+    
+    if(!member)
+    {
+      return res.status(200).send("member not found. Try registering first")
+    }
+    let email=req.body.email;
+    req.body.email=member.email;
+    req.session.confirmationEmail = email;
+   
+    let confirmations=await sendMail(req,res);
+    req.session.confirmationCode = confirmations[email];
+   
+    res.json({success:"true",confirmations})
+  })
+  router.post('/resetpassword',async(req,res)=>{  
+    const { code } = req.body.code;
+    const email = req.session.confirmationEmail;
+    const confirmationCode = req.session.confirmationCode;
+    
+    
+    if (confirmationCode === code) {
+      let member=await Member.findOne({email:email});
+      let newmember=member;
+
+      if(req.body.password){
+        const salt = await bcrypt.genSalt(10);
+      const secPass = await bcrypt.hash(req.body.password, salt);
+      newmember.password=secPass;
+    }
+      else{newmember.password=member.password}
+      member= await Member.findByIdAndUpdate(member._id,{$set:newmember},{new:true});
+      res.json(member);
+    }
+  })
 
 
 

@@ -26,7 +26,7 @@ import memContext from '../../context/memContext';
                     <div className="d-flex align-items-center">
                             
                             <button className="btn btn-outline-danger btn-sm btn-rounded " onClick={()=>{deleteMemm(reqmems._id)}}>Delete Member</button>
-                            <button className="btn btn-outline-success btn-sm btn-rounded" onClick={()=>{updateMem(reqmems)}}>Approve Member</button>
+                            <button className="btn btn-outline-success btn-sm btn-rounded" onClick={()=>{updateMem(reqmems)}}>Update Member</button>
                         </div>
                 </div>
             </div>

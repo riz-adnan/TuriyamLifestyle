@@ -21,7 +21,12 @@ import Gen from './components/Gen';
 import Women from './components/Women';
 import Cart from './components/Cart';
 import Adorders from './components/admin/Adorders';
-
+import Verifymember from './components/member/Verifymember';
+import Verifycode from './components/member/Verifycode';
+import Forgotmember from './components/member/Forgotmember';
+import Forgotcode from './components/member/Forgotcode';
+import Terms from './components/Terms';
+import Usefullinks from './components/Usefullinks';
 function App() {
 
   return (
@@ -48,6 +53,12 @@ function App() {
       <Route exact path='/women' element={<Women/>} />
       <Route exact path='/cart' element={<Cart/>} />
       <Route exact path='/adminpanel/oders' element={<Adorders/>} />
+      <Route exact path='/verifymember' element={<Verifymember/>} />
+      <Route exact path='/verifycode' element={<Verifycode/>} />
+      <Route exact path='/forgotmember' element={<Forgotmember/>} />
+      <Route exact path='/forgotcode' element={<Forgotcode/>} />
+      <Route exact path='/termsofservice' element={<Terms/>} />
+      <Route exact path='/usefullinks' element={<Usefullinks/>} />
       </Routes>
     
     

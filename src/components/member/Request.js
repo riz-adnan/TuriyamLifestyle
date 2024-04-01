@@ -17,15 +17,16 @@ const Request = (props) => {
             body: JSON.stringify({name: credentials.name, password: credentials.password,refid:credentials.refid,Aadhar:credentials.Aadhar,Pan:credentials.Pan,AccountNum:credentials.AccountNum,IFSC:credentials.IFSC,email:credentials.email,phone:credentials.phone,address:credentials.address})
         });
         const json = await response.json()
-        
+       
         if (json.success){
             // Save the auth token and redirect
              alert("Your Request is saved");
-            navigate('/')
+            navigate('/verifymember')
 
         }
         else{
-            alert("Invalid credentials");
+           
+            alert("Invalid credentials maja aagaya");
         }
     }
 

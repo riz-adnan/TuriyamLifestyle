@@ -12,7 +12,7 @@ const Home = () => {
           Turiyam Lifestyle Pvt. Ltd.
         </p>
         <Placard/>
-        <p className='testimonials'>
+        <p className='testimonials' style={{marginBottom:"50px"}}>
           Testimonials
         </p>
         <Homecat/>

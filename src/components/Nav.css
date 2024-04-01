@@ -1,12 +1,12 @@
 .navi{
-    background-color: orange;
-    color: black;
+    background-color: rgb(112, 4, 120);
+    color: rgb(239, 237, 237);
     border-radius: 20%;
     display: flex;
     justify-content: center;
 }
 #hi{
-    background-color: orange;
+    background-color: rgb(112, 4, 120);
 }
 
 i{

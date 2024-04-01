@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+<h1 align="center" id="title">Turiyam Lifestyle Pvt. Ltd.</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="https://socialify.git.ci/riz-adnan/TuriyamLifestyle/image?language=1&amp;name=1&amp;owner=1&amp;pattern=Formal%20Invitation&amp;theme=Light" alt="project-image"></p>
 
-## Available Scripts
+<p id="description">This repository houses the full-stack web platform for Turiyam Lifestyle a brand empowering members to embrace holistic living through curated products and digital tools. Explore the code powering their online presence from membership management to community building.</p>
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>Live Link:</h2>
+<p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  
+  
+<h2>🧐 Features</h2>
 
-### `npm test`
+Here're some of the project's best features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*   Membership Hub: Become a member unlock exclusive benefits manage subscriptions and track your journey.
+*   Product Showcase: Browse a carefully curated selection of wellness products apparel and experiences aligned with Turiyam's values.
+*   Digital Ecosystem: Enjoy a frictionless experience with online ordering member rewards programs and personalized recommendations.
 
-### `npm run build`
+<h2>🛠️ Installation Steps:</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p>1. Clone the repo</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/riz-adnan/TuriyamLifestyle.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>2. Install the dependencies</p>
 
-### `npm run eject`
+```
+npm run install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p>3. Set environment variable</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>4. Start the project</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm run both
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h2>🍰 Contribution Guidelines:</h2>
 
-## Learn More
+We ❤️ community contributions! Here's how you can join the fun:<p>Fork the Repo: Create a personal copy on your GitHub account</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p>Create a Branch: Make your changes in a separate branch</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p>Submit a Pull Request: Share your awesome work with us!</p>
 
-### Code Splitting
+  
+  
+<h2>💻 Built with</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Technologies used in the project:
 
-### Analyzing the Bundle Size
+*   React
+*   Express
+*   Node
+*   MongoDB
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<h2>🛡️ License:</h2>
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the ISC

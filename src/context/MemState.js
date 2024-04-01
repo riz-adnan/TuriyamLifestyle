@@ -24,30 +24,35 @@ const MemState = (props) => {
   }
   const getMemm = async () => {
     // API Call 
+    
     const response = await fetch(`http://localhost:5000/api/Mem/getappmembers`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         "auth-token": window.localStorage.getItem('token')
-      }
+      },
+      body: JSON.stringify({"memberid": "TLS-100"})
       
     });
     const json = await response.json() 
     setMem(json)
   }
   //Approve
-  const requestmem =async (id,memberid,parentid)=>{
-    const response = await fetch(`http://localhost:5000/api/Adminfun/approvemember/${id}`, {
-        method: 'POST',
+  const requestmem =async (id,Aadhar,Pan,Phone,Address,IFSC,AccountNum)=>{
+    
+    const response = await fetch(`http://localhost:5000/api/Mem/updatemember/${id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           "auth-token": window.localStorage.getItem('token')
         },
-        body: JSON.stringify({id, memberid, parentid})
+        body: JSON.stringify({id,Aadhar,Pan,Phone,Address,IFSC,AccountNum})
       }
       
       );
-      const newappmember=await response.json();
+      const newmembers=await response.json();
+      
+
       
 
     }

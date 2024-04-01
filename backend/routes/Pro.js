@@ -39,14 +39,20 @@ async (req,res)=>{
         const {name,price,urltoimage , description, category }=req.body;
        try{
         const newProd={};
-            if(name) {newProd.name=name};
-            if(price){newProd.price=price};
-            if(urltoimage){newProd.urltoimage=urltoimage};
-            if(description) {newProd.description=description};
-            if(category) {newProd.category=category};
+            
 
             let prod= await Products.findById(req.params.id);
-            
+            if(name) {newProd.name=name}
+            else {newProd.name=prod.name}
+            if(price){newProd.price=price}
+            else {newProd.price=prod.price}
+            if(urltoimage){newProd.urltoimage=urltoimage}
+            else {newProd.urltoimage=prod.urltoimage}
+            if(description) {newProd.description=description}
+            else {newProd.description=prod.description}
+            if(category) {newProd.category=category}
+            else {newProd.category=prod.category}
+
             if(!prod){
                 return res.status(404).send("Not Found");
             }

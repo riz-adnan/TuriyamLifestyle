@@ -20,12 +20,17 @@ const Loginmember = () => {
         if (json.success){
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken); 
+            localStorage.setItem('memberid', json.memberid);
             navigate('/membersbymember')
 
         }
         else{
             alert("Invalid credentials");
         }
+    }
+    const handleForgot = async (e) => {
+        e.preventDefault();
+        navigate('/forgotmember')
     }
 
     const onChange = (e)=>{
@@ -51,7 +56,7 @@ const Loginmember = () => {
 
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
-        
+            <button onClick={handleForgot} className="btn btn-danger" style={{marginTop:"10px"}}>Forgot Password</button>
         </Layout>
     </div>
   )

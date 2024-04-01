@@ -6,10 +6,10 @@ import './procar.css'
 const Men = () => {
 
     const context=useContext(prodContext);
-    const {prod,getProdMen}=context;
+    const {prod,getProd}=context;
 
     useEffect(()=>{
-        getProdMen()
+        getProd()
     },[])
 
   return (
