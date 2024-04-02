@@ -6,7 +6,7 @@ const Verifycode = (props) => {
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/Mem/verifycode", {
+        const response = await fetch("/api/Mem/verifycode", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

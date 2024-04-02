@@ -21,7 +21,7 @@ const Cart = () => {
     const postOrder =  async () =>{
         
         postorder(cartids,refid,window.localStorage.getItem("userid"))
-        const response = await fetch('http://localhost:5000/api/Orders/create-checkout-session', {
+        const response = await fetch('/api/Orders/create-checkout-session', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

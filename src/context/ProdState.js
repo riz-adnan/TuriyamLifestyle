@@ -17,7 +17,7 @@ const ProdState = (props) => {
   // Get all Notes
   const getProd = async () => {
     // API Call 
-    const response = await fetch(`http://localhost:5000/api/Pro/`, {
+    const response = await fetch(`/api/Pro/`, {
       method: 'GET',
       
       
@@ -29,7 +29,7 @@ const ProdState = (props) => {
   //Get All Men Products
   const getProdMen = async () => {
     // API Call 
-    const response = await fetch(`http://localhost:5000/api/Pro/`, {
+    const response = await fetch(`/api/Pro/`, {
       method: 'GET',
       
       
@@ -40,7 +40,7 @@ const ProdState = (props) => {
   }
   const getProdWomen = async () => {
     // API Call 
-    const response = await fetch(`http://localhost:5000/api/Pro/`, {
+    const response = await fetch(`/api/Pro/`, {
       method: 'GET',
       
       
@@ -51,7 +51,7 @@ const ProdState = (props) => {
   }
   const getProdGen = async () => {
     // API Call 
-    const response = await fetch(`http://localhost:5000/api/Pro/`, {
+    const response = await fetch(`/api/Pro/`, {
       method: 'GET',
       
       
@@ -66,7 +66,7 @@ const ProdState = (props) => {
    const addProd = async (name, description, price,urltoimage,category) => {
     // TODO: API Call
     // API Call 
-    const response = await fetch(`http://localhost:5000/api/Pro/addprod`, {
+    const response = await fetch(`/api/Pro/addprod`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ const ProdState = (props) => {
 // post order
  
   const postorder = async (cart,refid,buyer,price)=>{
-    const response = await fetch(`http://localhost:5000/api/Orders/postorder`, {
+    const response = await fetch(`/api/Orders/postorder`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +119,7 @@ const ProdState = (props) => {
   }
 
   const getorder = async ()=>{
-    const response = await fetch(`http://localhost:5000/api/Orders/getorders`, {
+    const response = await fetch(`/api/Orders/getorders`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ const ProdState = (props) => {
   }
    
   const apporder = async (id,memberid)=>{
-    const response= await fetch(`http://localhost:5000/api/Orders/approveorder/${id}`,{
+    const response= await fetch(`/api/Orders/approveorder/${id}`,{
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -146,7 +146,7 @@ const ProdState = (props) => {
   }
 
   const deleteorder = async (id)=>{
-    const response= await fetch(`http://localhost:5000/api/Orders/deleteorder/${id}`,{
+    const response= await fetch(`/api/Orders/deleteorder/${id}`,{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ const ProdState = (props) => {
   // Delete a Product
   const deleteProd = async (id) => {
     // API Call
-    const response = await fetch(`http://localhost:5000/api/Pro/deleteprod/${id}`, {
+    const response = await fetch(`/api/Pro/deleteprod/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -175,7 +175,7 @@ const ProdState = (props) => {
   // Edit a Note
   const editProd = async (id, name, description, price,urltoimage,category) => {
     // API Call 
-    const response = await fetch(`http://localhost:5000/api/Pro/updateprod/${id}`, {
+    const response = await fetch(`/api/Pro/updateprod/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

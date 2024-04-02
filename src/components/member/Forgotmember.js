@@ -7,7 +7,7 @@ const Forgotmember = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const response = await fetch("http://localhost:5000/api/Mem/forgotpassword", {
+        const response = await fetch("/api/Mem/forgotpassword", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

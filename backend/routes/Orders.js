@@ -6,7 +6,8 @@ const Order=require('../models/Order')
 const Product=require('../models/Products')
 const User=require('../models/User');
 const Appmember=require('../models/AppMember');
-const stripe = require('stripe')('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');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 router.post('/postorder',fetchuser, async (req,res)=>{
     success=false;

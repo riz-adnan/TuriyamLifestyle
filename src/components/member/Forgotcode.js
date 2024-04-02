@@ -6,7 +6,7 @@ const Forgotcode = (props) => {
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/Mem/resetpassword", {
+        const response = await fetch("/api/Mem/resetpassword", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

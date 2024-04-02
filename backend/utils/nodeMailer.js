@@ -1,7 +1,7 @@
 const express = require("express");
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
-
+require('dotenv').config();
 const sendMail = async (req, res) => {
     // Setup Nodemailer
     
@@ -13,7 +13,7 @@ const sendMail = async (req, res) => {
         secureConnection: false,
         auth: {
             user: 'turiyamlifestyle@gmail.com',
-            pass: 'jhlr dwwq cbud icbj'
+            pass: process.env.Pass
         },
         tls: {
             rejectUnauthorized: false

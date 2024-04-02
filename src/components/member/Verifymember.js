@@ -7,7 +7,7 @@ const Verifymember = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const response = await fetch("http://localhost:5000/api/Mem/verification", {
+        const response = await fetch("/api/Mem/verification", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
