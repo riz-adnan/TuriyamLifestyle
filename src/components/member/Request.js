@@ -47,7 +47,7 @@ const Request = (props) => {
                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="refid" className="form-label">refid</label>
+                    <label htmlFor="refid" className="form-label">Sponsor Id</label>
                     <input type="refid" className="form-control" value={credentials.refid} onChange={onChange} name="refid" id="refid" />
                 </div>
                 <div className="mb-3">
@@ -59,7 +59,7 @@ const Request = (props) => {
                     <input type="Pan" className="form-control" value={credentials.Pan} onChange={onChange} name="Pan" id="Pan" />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="AccountNum" className="form-label">AccountNum</label>
+                    <label htmlFor="AccountNum" className="form-label">Account Number</label>
                     <input type="AccountNum" className="form-control" value={credentials.AccountNum} onChange={onChange} name="AccountNum" id="AccountNum" />
                 </div>
                 <div className="mb-3">

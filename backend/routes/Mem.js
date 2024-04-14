@@ -377,14 +377,16 @@ catch(error){
     res.json({success:"true",confirmations})
   })
   router.post('/resetpassword',async(req,res)=>{  
-    console.log(req.body)
-    const { code } = req.body.code;
-    const email = req.session.confirmationEmail;
-    const confirmationCode = req.session.confirmationCode;
+    
+    const code  = req.body.code;
+    const email = req.body.confirmationEmail;
+    const confirmationCode = req.body.confirmationCode;
     
     
-    if (confirmationCode === code) {
+    if (confirmationCode == code) {
+      
       let member=await Member.findOne({email:email});
+      
       let newmember=member;
       success=false;
       if(!newmember)
@@ -399,6 +401,10 @@ catch(error){
       else{newmember.password=member.password}
       member= await Member.findByIdAndUpdate(member._id,{$set:newmember},{new:true});
       res.json(member);
+    }
+    else{
+      
+      return res.status(200).send("Code is incorrect")
     }
   })
 

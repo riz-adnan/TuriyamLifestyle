@@ -22,6 +22,7 @@ import memContext from '../../context/memContext';
                         <p className="card-text">Referral {reqmems.refid}</p>
                         <p className="card-text">IFSC {reqmems.IFSC}</p>
                         <p className="card-text">ACCOUNT NUMBER {reqmems.AccountNum}</p>
+                        <p className="card-text">Email {reqmems.email}</p>
                     </div>
                     <div className="d-flex align-items-center">
                             
