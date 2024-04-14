@@ -31,7 +31,7 @@ const MemState = (props) => {
         'Content-Type': 'application/json',
         "auth-token": window.localStorage.getItem('token')
       },
-      body: JSON.stringify({"memberid": "TLS-100"})
+      body: JSON.stringify({"memberid": localStorage.getItem('memberid')})
       
     });
     const json = await response.json() 

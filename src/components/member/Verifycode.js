@@ -16,7 +16,9 @@ const Verifycode = (props) => {
         });
         const json = await response.json()
         const memberid = json.memberid;
-            // Save the auth token and redirect
+        
+        localStorage.setItem('memberid', memberid);
+            
              alert(`Your memberid is ${memberid}. Use this to login`);
             navigate('/loginmember')
 

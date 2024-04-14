@@ -49,6 +49,7 @@ const Loginuser = () => {
         e.preventDefault();
 
         try {
+            
             const response = await fetch("/api/auth/createuser", {
                 method: 'POST',
                 headers: {
@@ -85,11 +86,11 @@ const Loginuser = () => {
                     <Components.SignUpContainer signinIn={signIn}>
                         <Components.Form onSubmit={handlesignSubmit} style={{marginTop:"-35px"}}>
                             <Components.Title>Create Account</Components.Title>
-                            <Components.Input type='text' placeholder='Name' name="name" onChange={onChange} />
-                            <Components.Input type='email' placeholder='Email' name="email" onChange={onChange} />
-                            <Components.Input type='password' placeholder='Password' name="password" onChange={onChange} />
-                            <Components.Input type='phone' placeholder='Phone' name="phone" onChange={onChange} />
-                            <Components.Input type='address' placeholder='Address' name="address" onChange={onChange} />
+                            <Components.Input type='text' placeholder='Name' name="name" onChange={onsignChange} />
+                            <Components.Input type='email' placeholder='Email' name="email" onChange={onsignChange} />
+                            <Components.Input type='password' placeholder='Password' name="password" onChange={onsignChange} />
+                            <Components.Input type='phone' placeholder='Phone' name="phone" onChange={onsignChange} />
+                            <Components.Input type='address' placeholder='Address' name="address" onChange={onsignChange} />
                             <Components.Button type="submit">Sign Up</Components.Button>
                         </Components.Form>
                     </Components.SignUpContainer>

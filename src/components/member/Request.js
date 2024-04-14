@@ -26,7 +26,7 @@ const Request = (props) => {
         }
         else{
            
-            alert("Invalid credentials maja aagaya");
+            alert("Invalid credentials");
         }
     }
 

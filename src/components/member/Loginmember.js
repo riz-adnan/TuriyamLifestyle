@@ -18,7 +18,9 @@ const Loginmember = () => {
         const json = await response.json()
         
         if (json.success){
+            
             // Save the auth token and redirect
+            
             localStorage.setItem('token', json.authtoken); 
             localStorage.setItem('memberid', json.memberid);
             navigate('/membersbymember')

@@ -6,6 +6,7 @@ const Forgotcode = (props) => {
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
         const response = await fetch("/api/Mem/resetpassword", {
             method: 'POST',
             headers: {
@@ -15,9 +16,9 @@ const Forgotcode = (props) => {
             body: JSON.stringify({code: credentials.code, confirmationEmail: localStorage.getItem('email'), confirmationCode: localStorage.getItem('code'), password: credentials.password})
         });
         const json = await response.json()
-        const memberid = json.memberid;
+        
             // Save the auth token and redirect
-             alert(`Your memberid is ${memberid}. Use this to login`);
+            
             navigate('/loginmember')
 
         

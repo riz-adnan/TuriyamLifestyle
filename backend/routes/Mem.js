@@ -128,7 +128,7 @@ router.post('/requestmember', [
       }
       const authtoken = jwt.sign(data, JWT_SECRET);
       success=true;
-      res.json({success, authtoken })
+      res.json({success, authtoken, memberid })
   
     } catch (error) {
       success=false;
@@ -377,6 +377,7 @@ catch(error){
     res.json({success:"true",confirmations})
   })
   router.post('/resetpassword',async(req,res)=>{  
+    console.log(req.body)
     const { code } = req.body.code;
     const email = req.session.confirmationEmail;
     const confirmationCode = req.session.confirmationCode;
@@ -385,7 +386,11 @@ catch(error){
     if (confirmationCode === code) {
       let member=await Member.findOne({email:email});
       let newmember=member;
-
+      success=false;
+      if(!newmember)
+      {
+        return res.status(200).send("member not found")
+      }
       if(req.body.password){
         const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
